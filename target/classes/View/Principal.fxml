@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="882.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PrincipalController">
+  <tabs>
+    <Tab text="Página Principal">
+      <content>
+        <BorderPane minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="615.0">
+               <bottom>
+                  <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <items>
+                      <Button fx:id="btnEliminarCita" mnemonicParsing="false" onAction="#handleEliminarCita" prefHeight="25.0" prefWidth="103.0" text="Eliminar Cita">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/close.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                    </items>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                  </ToolBar>
+               </bottom>
+               <center>
+                  <TableView fx:id="tblCitas" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TableColumn fx:id="columId" prefWidth="51.0" text="ID" />
+                      <TableColumn fx:id="columPaciente" prefWidth="187.0" text="Nombre Paciente" />
+                        <TableColumn fx:id="columDoctor" prefWidth="216.0" text="Doctor" />
+                        <TableColumn fx:id="columConsultorio" prefWidth="166.0" text="Consultorio" />
+                        <TableColumn fx:id="columFecha" prefWidth="137.0" text="Fecha" />
+                        <TableColumn fx:id="columHora" prefWidth="124.0" text="Hora" />
+                    </columns>
+                  </TableView>
+               </center></BorderPane>
+      </content>
+    </Tab>
+    <Tab text="Citas">
+      <content>
+        <BorderPane minHeight="0.0" minWidth="0.0" prefHeight="376.0" prefWidth="668.0">
+               <left>
+                  <Pane prefHeight="371.0" prefWidth="265.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Búsqueda del Paciente" />
+                        <TextField fx:id="txtBusquedaPaciente" layoutX="14.0" layoutY="46.0" prefHeight="23.0" prefWidth="149.0" promptText="Nombre del Paciente" />
+                        <Button fx:id="btnBucarPaciente" layoutX="172.0" layoutY="46.0" mnemonicParsing="false" onAction="#handleBuscarPaciente" prefHeight="25.0" prefWidth="81.0" text="Buscar">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/search.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Label fx:id="errorBusqueda" layoutX="14.0" layoutY="75.0" prefHeight="17.0" prefWidth="147.0" textFill="#e80f0f" />
+                     </children>
+                  </Pane>
+               </left>
+               <bottom>
+                  <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <items>
+                      <Button fx:id="btnNuevaCita" mnemonicParsing="false" onAction="#handleNuevaCita" text="Nueva Cita">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/add.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnAgregarCita" mnemonicParsing="false" onAction="#handleAgregarCita" text="Agregar Cita">
+                           <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/check.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                    </items>
+                  </ToolBar>
+               </bottom>
+               <center>
+                  <TableView fx:id="tblBusqueda" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TableColumn fx:id="columIdPaciente" prefWidth="49.0" text="ID" />
+                      <TableColumn fx:id="columNombres" prefWidth="169.0" text="Nombres" />
+                        <TableColumn fx:id="columApellidos" prefWidth="184.0" text="Apellidos" />
+                        <TableColumn fx:id="columFechaNacimiento" prefWidth="214.0" text="Fecha Nacimiento" />
+                    </columns>
+                  </TableView>
+               </center></BorderPane>
+      </content>
+    </Tab>
+    <Tab text="Historial de Pacientes">
+        <BorderPane minHeight="0.0" minWidth="0.0" prefHeight="373.0" prefWidth="668.0">
+            <left>
+               <Pane prefHeight="371.0" prefWidth="264.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <Label layoutX="14.0" layoutY="14.0" text="Búsqueda del Paciente" />
+                     <TextField fx:id="txtPacienteHistorial" layoutX="14.0" layoutY="46.0" promptText="Nombre del Paciente" />
+                     <Button fx:id="btnBuscarHistorial" layoutX="173.0" layoutY="46.0" mnemonicParsing="false" onAction="#handleBuscarHistorial" prefHeight="25.0" prefWidth="81.0" text="Buscar">
+                        <graphic>
+                           <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../Image/search.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                     <Label layoutX="14.0" layoutY="78.0" prefHeight="17.0" prefWidth="148.0" />
+                  </children>
+               </Pane>
+            </left>
+            <center>
+               <TableView fx:id="tblHistorial" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                 <columns>
+                   <TableColumn fx:id="columIdPacienteH" prefWidth="53.0" text="ID" />
+                   <TableColumn fx:id="columNombresH" prefWidth="97.0" text="Nombres" />
+                     <TableColumn fx:id="columApellidosH" prefWidth="101.0" text="Apellidos" />
+                     <TableColumn fx:id="columFechaCita" prefWidth="100.0" text="Fecha de Cita" />
+                     <TableColumn fx:id="columDescripcion" prefWidth="266.0" text="Descripción" />
+                 </columns>
+               </TableView>
+            </center></BorderPane>
+    </Tab>
+  </tabs>
+</TabPane>
